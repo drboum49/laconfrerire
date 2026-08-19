@@ -1,0 +1,144 @@
+==============================================================================
+  DESCRIPTIONS DES MEMBRES DE LA CONFRÉRIRE
+==============================================================================
+
+  Ces textes ont été écrits par la troupe puis retirés du site : les fiches
+  membres affichent aujourd'hui un texte provisoire en latin.
+
+  POUR LES REMETTRE EN LIGNE
+  Ouvrir troupe.html, chercher le prénom voulu après data-name="…", puis
+  remplacer le texte latin qui suit data-bio="…" par le texte ci-dessous.
+  Attention : le texte doit rester entre les guillemets droits ("), et ne
+  doit contenir aucun guillemet droit à l'intérieur.
+
+------------------------------------------------------------------------------
+  ALEXANDRE
+------------------------------------------------------------------------------
+
+  Membre historique de la troupe, il en est aussi le coordinateur : celui
+  qui s'assure que tout le monde est à son poste et s'y sent à l'aise. Sur
+  scène comme dans la vie, il s'adapte à tout. Son plus grand kiff ? Flirter
+  avec le danger. Il peut tomber, trébucher, escalader et retomber avec une
+  facilité évoquant celle d'un cascadeur professionnel (une carrière qu'il a
+  d'ailleurs sérieusement envisagée). Rassembleur, énergique, bonne ambi,
+  Alexandre est le pote avec lequel il est impossible de se disputer. Sa
+  devise ? Pas de témoins, que des complices.
+
+------------------------------------------------------------------------------
+  AMANDINE
+------------------------------------------------------------------------------
+
+  Impossible de la rater, sur scène comme en soirée : Amandine est une
+  metteuse d'ambiance née. Ne lui donnez surtout pas un spritz sous peine de
+  devoir danser avec elle jusqu'au bout de la nuit. Mais attention, elle
+  peut se transformer en une metteuse en scène précise et rigoureuse. De
+  notre troupe, si les salutations au public de fin de spectacle sont
+  coordonnées, c'est uniquement grâce à elle. Sur scène, elle incarne toutes
+  sortes de personnages, peut apporter de la couleur voire de la poésie aux
+  scènes qu'elle traverse. Et quand elle ne comprend plus rien à ce qui se
+  joue, elle trouve sa place avec humour et décalage. Elle a aussi un autre
+  talent : il se murmure qu'elle fait de la comédie musicale improvisée.
+
+------------------------------------------------------------------------------
+  LAURA D.
+------------------------------------------------------------------------------
+
+  Fraîchement arrivée dans la troupe en 2025, elle a ce sourire qui donne
+  immédiatement envie de la suivre où qu'elle aille. Incollable en
+  littérature française, elle a donc un sens redoutable du personnage
+  bourgeois : phrases ciselées, une élégance un peu surannée qu'elle sort
+  avec un naturel troublant. Sa douceur et sa pédagogie font d'elle une
+  facilitatrice de communication dans un groupe où les avis divergent et
+  convergent à toute allure. [Une phrase à trouver en plus]
+
+------------------------------------------------------------------------------
+  LAURA H.
+------------------------------------------------------------------------------
+
+  Française naturalisée, elle n'a pas encore l'accent liégeois, mais s'est
+  parfaitement acclimatée à nos boulets frites compote. Son expérience du
+  théâtre acquise ado rend son jeu crédible pour toujours. Sa voix et son
+  sourire lui offrent cette faculté de tenir une scène à elle seule en
+  chantant. Ce n'est donc sans doute pas un hasard si c'est toujours elle
+  que le public choisit quand il faut désigner quelqu'un. Pleine de malice,
+  elle peut aussi se montrer espiègle, sur scène comme au bar d'après
+  spectacle. Elle connaît tous les concepts d'impro par cœur, ce qui fait
+  d'elle un pilier expérimenté de la troupe.
+
+------------------------------------------------------------------------------
+  LAURENT
+------------------------------------------------------------------------------
+
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+------------------------------------------------------------------------------
+  MARINE
+------------------------------------------------------------------------------
+
+  C'est elle qui nous fait rayonner sur les réseaux ! Chaque moment « off »
+  de l'équipe est une occasion pour Marine pour nous filmer ou
+  photographier, sous notre meilleur jour (ou pas). On découvre ces
+  créations sur Instagram et on l'admet : on trouve qu'on a la meilleure
+  community manager de la province. Elle nous amuse et nous permet de
+  revivre nos moments improvisés après coup. Nommée Maman d'or depuis 7
+  années consécutives, elle a cette attention aux autres doublée d'une force
+  tranquille qui rend sa présence rassurante. Sur scène, elle peut endosser
+  les gros personnages, quitte à les rendre franchement too much (et c'est
+  justement ce qui marche).
+
+------------------------------------------------------------------------------
+  MICKAËL
+------------------------------------------------------------------------------
+
+  Reconnaissable entre mille à sa moustache en guidon, il a un style vintage
+  qu'il assume à cent pour cent. Professeur de sciences dans la vie, il a le
+  profil du prof qu'on aurait tous voulu avoir : passionné, débordant
+  d'énergie, drôle avec un brin d'excentricité. Il a aussi ses univers de
+  prédilection (la piraterie en tête), qu'il maîtrise mieux que les
+  corsaires de l'époque. Amateur de mignardises et de pains au chocolat, sa
+  générosité sur scène est aussi communicative que sa gourmandise en
+  cuisine.
+
+------------------------------------------------------------------------------
+  SYLVAIN
+------------------------------------------------------------------------------
+
+  Il est fraîchement arrivé dans la troupe en 2025, mais vous pourrez le
+  repérer à distance. La calisthénie lui a donné un physique de déménageur
+  qu'il utilise sur scène dès qu'il le peut. Avec ses personnages très
+  incarnés dans son corps, ses scènes ne manquent pas d'énergie. Il peut
+  jouer des personnages tordus ou penchés, qui courent, nagent, volent ou
+  rampent, étant poursuivis par des créatures maléfiques qui veulent souvent
+  le dévorer. Dans la vie, c'est un touche-à-tout assumé (ou omnivore
+  intellectuel comme il le dit) : il répare les cafetières le dimanche, code
+  des sites le mardi et part à la pêche à la mouche le jeudi.
+
+------------------------------------------------------------------------------
+  THIERRY
+------------------------------------------------------------------------------
+
+  Le seul de la troupe qui peut écrire « travailleur des arts » sur sa
+  déclaration d'impôts. Mesdames, messieurs, Thierry est un professionnel,
+  il peut tout faire. Il est aussi solide sur une vanne en trois secondes
+  que sur une scène longue et construite. Leader, il peut mener à bien une
+  impro en toute quiétude. Suiveur, il surgit au bon moment pour apporter
+  l'idée qui change tout à une scène. Perfectionniste, il repasse encore la
+  scène de la veille dans sa tête pour l'améliorer. Et tout ça en toute
+  humilité.
+
+------------------------------------------------------------------------------
+  VIOLAINE
+------------------------------------------------------------------------------
+
+  Violaine est dotée d'une sensibilité à fleur de peau et d'une empathie qui
+  se repère à des kilomètres. C'est elle, notre responsable d'organisation
+  de week-end et team building. Elle a fait partie d'une troupe aujourd'hui
+  disparue et cumule assez d'expérience pour mériter le surnom de dinosaure
+  de l'impro. Mais elle est loin de se reposer sur ses lauriers. Son kiff du
+  moment ? Jouer pour les enfants. Sur scène, elle passe sans prévenir d'une
+  scène juste et chargée d'émotion à un personnage plein d'assurance. Entre
+  deux répétitions, elle travaille (beaucoup) au Parlement européen et
+  s'occupe de son chat (?)
+

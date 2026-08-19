@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réserver un spectacle d'impro à Liège | La Confrérire</title>
+<meta name="description" content="Prochaines dates et réservations des spectacles d'impro de La Confrérire à Liège, au TURLG et à la Courte Échelle. Saison 2026-2027.">
+<link rel="canonical" href="https://www.laconfrerire.be/spectacles.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Réserver un spectacle d'impro à Liège">
+<meta property="og:description" content="Prochaines dates et réservations des spectacles d'impro de La Confrérire à Liège, au TURLG et à la Courte Échelle. Saison 2026-2027.">
+<meta property="og:image" content="https://www.laconfrerire.be/images/groupe-scene-rouge.jpg">
+<meta property="og:url" content="https://www.laconfrerire.be/spectacles.html">
+<meta property="og:site_name" content="La Confrérire">
+<meta property="og:locale" content="fr_BE">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil",
+      "item": "https://www.laconfrerire.be/" },
+    { "@type": "ListItem", "position": 2, "name": "Réservation",
+      "item": "https://www.laconfrerire.be/spectacles.html" }
+  ]
+}
+</script>
+
+<meta name="color-scheme" content="light">
+
+<!-- Polices hébergées avec le site (voir css/styles.css, section 0).
+     Ces quatre fichiers sont préchargés parce qu'ils servent au tout premier
+     écran : fraunces-700 pour le nom de la troupe en haut, jost-500 pour les
+     liens du menu, fraunces-600 pour le titre, jost-400 pour le texte. -->
+<link rel="preload" href="fonts/fraunces-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- ===== EN-TÊTE (identique sur les 4 pages) ===== -->
+<nav class="site-nav" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="images/logo-confrerire.png" alt="" width="123" height="160">
+      <span>La Confrérire</span>
+    </a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="troupe.html">La troupe</a></li>
+      <li><a href="demander.html">Demander un spectacle</a></li>
+      <li><a class="btn-resa" href="spectacles.html" aria-current="page">Réserver</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="contenu">
+
+<!-- ===== TITRE DE PAGE ===== -->
+<header class="page-head">
+  <div class="wrap">
+    <span class="kicker">Saison 2026 – 2027</span>
+    <h1>Réservation</h1>
+  </div>
+</header>
+
+<!--
+  Les dates et les liens Billetweb sont gérés dans js/agenda.js.
+  C'est le seul fichier à modifier pour publier, retirer ou mettre à jour un
+  spectacle. Le mode d'emploi complet se trouve au début de ce fichier.
+-->
+<section class="agenda">
+  <div class="wrap">
+    <h2 class="section-title">Les prochaines dates</h2>
+
+    <!-- Emplacement prévu pour le module de billetterie Billetweb.
+         Vide = rien ne s'affiche. -->
+    <div id="billetterie"></div>
+
+    <ul class="agenda-list" id="agenda-list" aria-live="polite"></ul>
+
+    <!-- Affiché automatiquement tant qu'aucune date n'est renseignée. -->
+    <div class="empty-agenda" hidden>
+      <h2>Pas de date annoncée pour le moment</h2>
+      <p class="lead center mb-lg">La prochaine saison se prépare. Suivez-nous sur Instagram pour être les premiers au courant.</p>
+      <a class="btn btn-primary" href="https://www.instagram.com/laconfrerire/" target="_blank" rel="noopener">Nous suivre sur Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OÙ NOUS VOIR ===== -->
+<section class="lieux">
+  <div class="wrap">
+    <span class="kicker">Où nous voir</span>
+    <h2 class="section-title">Nos salles à Liège</h2>
+    <div class="lieux-grid">
+      <div class="lieu-card">
+        <a class="lieu-logo" href="https://turlg.be/" target="_blank" rel="noopener"
+           aria-label="Site du Théâtre Universitaire Royal de Liège (nouvelle fenêtre)">
+          <img src="images/logo-turlg.jpg" alt="Théâtre Universitaire Royal de Liège" width="320" height="305" loading="lazy">
+        </a>
+        <div>
+          <h3><a href="https://turlg.be/" target="_blank" rel="noopener">Théâtre Universitaire Royal de Liège (TURLG)</a></h3>
+          <p>Notre plus grande et plus belle salle, à deux pas de la place du Vingt-Août.</p>
+        </div>
+      </div>
+      <div class="lieu-card">
+        <a class="lieu-logo" href="https://www.courte-echelle.be/" target="_blank" rel="noopener"
+           aria-label="Site de À la Courte Échelle (nouvelle fenêtre)">
+          <img src="images/logo-courte-echelle.png" alt="À la Courte Échelle" width="200" height="305" loading="lazy">
+        </a>
+        <div>
+          <h3><a href="https://www.courte-echelle.be/" target="_blank" rel="noopener">À la Courte Échelle</a></h3>
+          <p>Une salle liégeoise à taille humaine, idéale pour les formats courts et les soirées plus intimes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPEL À L'ACTION ===== -->
+<section class="cta-band">
+  <div class="wrap">
+    <span class="kicker">Sur mesure</span>
+    <h2>Aucune date ne vous convient&nbsp;?</h2>
+    <p class="lead">Nous pouvons aussi venir jouer chez vous, pour votre entreprise, votre école, votre association ou votre fête.</p>
+    <a class="btn btn-primary" href="demander.html">Demander un spectacle</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== PIED DE PAGE (identique sur les 4 pages) ===== -->
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="foot-brand" href="index.html">
+      <img src="images/logo-confrerire.png" alt="" width="123" height="160">
+      <span>La Confrérire</span>
+    </a>
+    <nav aria-label="Navigation de pied de page">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="troupe.html">Troupe</a></li>
+        <li><a href="demander.html">Demander un spectacle</a></li>
+        <li><a href="spectacles.html">Réserver</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/agenda.js" defer></script>
+<script src="js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+================================================================================
+
+                        SITE WEB DE LA CONFRÉRIRE
+                  Tout ce qu'il faut savoir, en un fichier
+
+================================================================================
+
+  Ce fichier s'adresse à la personne qui reprend le site : mise en ligne,
+  intégration Instagram, billetterie, et modifications courantes.
+
+  Il ne s'affiche pas sur le site. Il peut rester dans le dossier.
+
+
+  SOMMAIRE
+
+     1.  Le site en deux minutes
+     2.  Ce qu'il reste à faire (résumé)
+     3.  Modifier un texte ou une photo
+     4.  Les fiches des membres
+     5.  Les dates de spectacle
+     6.  Les couleurs
+     7.  CHANTIER 1 — Le flux Instagram
+     8.  CHANTIER 2 — La billetterie Billetweb
+     9.  CHANTIER 3 — Hébergement, domaine et DNS
+    10.  Référencement : ce qui est en place
+    11.  Ce qui a déjà été vérifié (à ne pas refaire)
+    12.  Vérifier après modification
+    13.  Conventions et pièges du code
+    14.  Points laissés ouverts
+
+
+================================================================================
+ 1. LE SITE EN DEUX MINUTES
+================================================================================
+
+  Site statique : 4 pages HTML, une feuille de style, deux scripts. Pas de
+  framework, pas d'étape de compilation, pas de base de données. On envoie le
+  dossier sur un hébergement et ça fonctionne.
+
+    index.html        Accueil
+    troupe.html       Les 10 fiches membres (fenêtre au clic)
+    spectacles.html   Réservation + agenda
+    demander.html     Spectacle sur mesure
+
+    css/styles.css    TOUT le style des 4 pages (un seul fichier, commenté)
+    js/site.js        Comportements communs des 4 pages
+    js/agenda.js      Dates et liens Billetweb (à modifier pour l'agenda)
+    fonts/            Les 6 polices, hébergées avec le site
+    images/           Les photos
+    images/membres/   2 portraits par comédien (noir et blanc + couleur)
+    outils/           Scripts de vérification — NE PAS mettre en ligne
+
+    favicon.png            Icône d'onglet
+    apple-touch-icon.png   Icône d'écran d'accueil iPhone
+    robots.txt             Autorise l'indexation      <- contient le domaine
+    sitemap.xml            Liste des pages            <- contient le domaine
+
+    LISEZ-MOI.txt                          Ce fichier
+    Description membres si nécessaire.txt  Les vraies bios des membres
+
+  Poids : 2,3 Mo au total, dont 1,9 Mo de photos.
+  Transfert réel mesuré, cache vide, polices comprises :
+
+    page          ordinateur (1440 px)   téléphone (390 px)
+    accueil            626 Ko                 374 Ko
+    troupe             573 Ko                 394 Ko
+    demander           407 Ko                 366 Ko
+    spectacles         149 Ko                 149 Ko
+
+  L'écart sur l'accueil vient du srcset du visuel d'en-tête : un téléphone
+  télécharge la version 1400 px (99 Ko) au lieu de la 2400 px (283 Ko).
+
+
+================================================================================
+ 2. CE QU'IL RESTE À FAIRE (RÉSUMÉ)
+================================================================================
+
+  TECHNIQUE (voir chapitres 7, 8, 9)
+    [ ] Brancher le flux Instagram — le code est écrit, il manque une adresse
+    [ ] Brancher la billetterie Billetweb
+    [ ] Mettre en ligne : hébergement, HTTPS, domaine, DNS
+
+  CONTENU (à demander à la troupe)
+    [ ] Les descriptions des membres : les fiches affichent du latin. Les
+        vrais textes sont dans « Description membres si nécessaire.txt ».
+    [ ] Ajouter les vraies dates et leurs liens Billetweb dans js/agenda.js.
+    [ ] Les liens « Réserver » pointent vers l'accueil de Billetweb, pas vers
+        de vrais événements.
+
+
+================================================================================
+ 3. MODIFIER UN TEXTE OU UNE PHOTO
+================================================================================
+
+  LES TEXTES sont dans les 4 fichiers .html. Ils s'ouvrent avec n'importe quel
+  éditeur de texte. Pour changer le titre de l'accueil, chercher :
+
+      <h1>La Confrérire</h1>
+
+  et remplacer ce qui est entre <h1> et </h1>. Ne pas toucher aux chevrons.
+
+  LES PHOTOS sont dans images/. Le plus simple est de donner à la nouvelle
+  photo exactement le nom de celle qu'elle remplace, et de la déposer par
+  dessus. Deux précautions :
+
+    - Garder des proportions voisines. Les photos de la mosaïque « Un peu de
+      nous » s'affichent en carré : une photo très allongée sera rognée.
+
+    - Réduire le poids avant de déposer. Une photo de téléphone pèse souvent
+      5 Mo, ce qui rendrait la page très lente. Viser 200 Ko. squoosh.app
+      fait ça en deux clics.
+
+  Si le nom du fichier change, il faut aussi le changer dans le .html, ainsi
+  que le texte alternatif (alt) et les dimensions (width et height).
+
+  ATTENTION AUX DIMENSIONS : chaque <img> porte width et height. Ce ne sont
+  pas des tailles d'affichage mais les dimensions réelles du fichier ; elles
+  servent au navigateur à réserver la place et éviter que la page saute
+  pendant le chargement (indicateur CLS, suivi par Google). Si vous changez
+  une photo pour une autre de format différent, mettez-les à jour.
+
+
+================================================================================
+ 4. LES FICHES DES MEMBRES
+================================================================================
+
+  Dans troupe.html, chaque membre est un bloc de ce genre :
+
+      <button class="card" type="button"
+              data-name="Prénom"
+              data-photo="images/membres/prenom-couleur.jpg"
+              data-bio="Le texte de présentation…">
+
+  Le texte affiché dans la fiche est celui qui suit data-bio.
+
+  ÉTAT ACTUEL : ces textes ont été remplacés par du latin. Les vrais textes,
+  écrits par la troupe, sont dans « Description membres si nécessaire.txt »,
+  prêts à être recollés.
+
+  Le texte doit rester entre guillemets droits (") et n'en contenir aucun à
+  l'intérieur, sinon la fiche se coupe au milieu. Une apostrophe (') ne pose
+  aucun problème.
+
+  Vous verrez dans le fichier des suites comme s&#x27;assure : c'est
+  simplement la façon dont le HTML écrit une apostrophe. Ne pas y toucher.
+
+  POUR AJOUTER UN MEMBRE : copier un bloc entier du <button au </button>,
+  puis changer le prénom (à deux endroits : data-name et le texte du bas),
+  les deux chemins de photos, le texte, le alt, et les width/height du
+  portrait — qui diffèrent d'une photo à l'autre.
+
+
+================================================================================
+ 5. LES DATES DE SPECTACLE
+================================================================================
+
+  Ouvrir js/agenda.js : c'est le seul fichier à modifier pour ajouter,
+  modifier ou supprimer une date. Un modèle est déjà commenté au début du
+  fichier. Copier ce modèle, renseigner les informations du spectacle et,
+  surtout, l'adresse DIRECTE de l'événement Billetweb.
+
+  Ne pas mettre l'adresse générale https://www.billetweb.fr : elle n'ouvre
+  pas la réservation du spectacle. S'il n'y a aucune date à annoncer, laisser
+  simplement la liste vide ([]) : le message d'attente s'affiche tout seul.
+
+
+================================================================================
+ 6. LES COULEURS
+================================================================================
+
+  Tout part des variables en section 1 de css/styles.css, transparences
+  comprises. Aucune couleur n'est écrite en dur ailleurs dans le fichier :
+  changer --cream repeint réellement la barre de navigation translucide.
+
+      --cream          fond beige clair
+      --ink            noir des textes et des bandeaux sombres
+      --amber          doré des FONDS (boutons, bandeau contact)
+
+  ATTENTION AUX CINQ DORÉS. Ils ne sont pas interchangeables : un doré assez
+  clair pour être beau en fond devient illisible en petit texte sur du beige.
+
+      variable            usage                              contraste
+      --amber             fonds et décor UNIQUEMENT               —
+      --amber-texte       texte doré sur fond clair (crème)     4,57:1
+      --amber-sable       texte doré sur le bandeau sable       4,52:1
+      --amber-pastille    texte des étiquettes de l'agenda      5,46:1
+      --amber-clair       texte doré sur fond SOMBRE            8,43:1
+
+  Utiliser --amber pour du texte sur le beige donne 2,6:1, très en dessous du
+  minimum de 4,5:1 exigé par WCAG AA. C'est l'erreur la plus facile à faire
+  ici. Sur les fonds dorés, le texte est en --ink (5,96:1), pas en blanc
+  (2,94:1). Le script outils/contrastes.js vérifie tout ça en dix secondes.
+
+
+================================================================================
+ 7. CHANTIER 1 — LE FLUX INSTAGRAM
+================================================================================
+
+  LE CODE EST DÉJÀ ÉCRIT (js/site.js, section 4). Il manque une adresse.
+
+  POURQUOI CE N'EST PAS AUTOMATIQUE PAR DÉFAUT
+  Depuis juin 2026, Instagram autorise à nouveau l'intégration gratuite d'UNE
+  publication isolée, mais afficher en continu le fil d'un compte reste
+  réservé aux connexions authentifiées. Il faut donc un service intermédiaire.
+
+  POURQUOI UN FLUX JSON PLUTÔT QU'UN WIDGET
+  Un widget clé en main arrive avec son propre habillage, enfermé dans une
+  iframe ou un shadow DOM : impossible de lui appliquer le style du site. Un
+  flux JSON livre les données brutes, et c'est notre code qui dessine. Le
+  rendu reste donc exactement celui du site.
+
+  MARCHE À SUIVRE (environ 10 minutes, gratuit)
+
+    1. Créer un compte sur https://behold.so
+       Offre gratuite : 1 flux, 6 publications, mise à jour quotidienne,
+       1 200 vues par mois. Largement suffisant pour une troupe.
+
+    2. Y connecter le compte @laconfrerire. Instagram exige un compte
+       « professionnel » ou « créateur » — gratuit et réversible, ça se change
+       dans les réglages d'Instagram.
+
+    3. Créer un flux, ouvrir son onglet JSON, copier l'adresse. Elle ressemble
+       à https://feeds.behold.so/XXXXXXXXXXXX
+
+    4. Dans index.html, renseigner l'attribut data-feed :
+
+         <div id="flux-instagram" data-feed="https://feeds.behold.so/XXXX"
+              data-max="6"></div>
+
+    5. NE PAS SUPPRIMER les trois <a class="insta-photo"> codés en dur juste
+       en dessous. Ce sont eux, le filet de sécurité : le script ne vide
+       .insta-collage qu'en cas de succès. Les retirer transformerait toute
+       panne de flux en section vide.
+
+  COMPORTEMENT
+  Si le flux répond, les publications remplacent les vignettes fixes. S'il ne
+  répond pas — ou renvoie du vide, ou du JSON invalide — les vignettes fixes
+  restent affichées et un avertissement part dans la console. Une publication
+  isolée mal formée est écartée seule, les autres passent. Le visiteur ne voit
+  jamais un trou.
+
+  Testé avec un faux serveur JSON sur sept formes de réponse : flux valide,
+  injoignable, JSON invalide, posts absent, posts nul, tableau à la racine,
+  publications sans média. Aucune exception non rattrapée.
+
+  AUTRE PRESTATAIRE : le code attend le format Behold (posts[] avec sizes,
+  permalink, altText, mediaType). Sinon, adapter la fonction pickImage().
+
+  SANS COMPTE À CRÉER : on peut aussi épingler quelques publications à la
+  main. Sur Instagram : ouvrir une publication, menu « … », « Intégrer »,
+  copier le code, le coller à la place d'un bloc <a class="insta-photo">.
+  Gratuit, mais à refaire à chaque changement.
+
+
+================================================================================
+ 8. CHANTIER 2 — LA BILLETTERIE BILLETWEB
+================================================================================
+
+  Repères : js/agenda.js pour les liens directs ; spectacles.html pour le
+  module intégré, si vous en choisissez un.
+
+  OPTION A — LIENS DIRECTS (le plus simple)
+  Ajouter ou modifier l'adresse reservationUrl de chaque spectacle dans
+  js/agenda.js. Il doit s'agir de l'adresse de l'événement Billetweb, du type
+  https://www.billetweb.fr/nom-de-l-evenement. Le visiteur part sur Billetweb.
+
+  OPTION B — MODULE INTÉGRÉ (le visiteur reste sur le site)
+  Billetweb fournit un <iframe> ou un <script> « widget » par événement. Le
+  poser dans le bloc <div id="billetterie">, prévu pour ça juste au-dessus de
+  la liste des dates, et retirer les boutons devenus redondants.
+  Deux points de vigilance :
+    - l'iframe impose sa propre hauteur : prévoir width:100% et une hauteur
+      suffisante, ou activer le redimensionnement automatique de Billetweb ;
+    - le style du module n'est pas celui du site, c'est du contenu tiers.
+
+  À DÉCIDER AVEC LA TROUPE : le bouton « Réserver » de la barre de navigation
+  mène à spectacles.html. Il pourrait mener directement à la billetterie. Il
+  est identique sur les 4 pages, donc à changer 4 fois.
+
+  DONNÉES STRUCTURÉES : aucune balise Event n'a été posée, volontairement.
+  Déclarer à Google des dates qui n'existent pas serait contre-productif.
+  Quand les vraies dates seront en ligne, ajouter un bloc JSON-LD de type
+  Event par spectacle rendra les dates éligibles à l'affichage enrichi dans
+  les résultats de recherche. C'est le meilleur gain SEO restant.
+
+
+================================================================================
+ 9. CHANTIER 3 — HÉBERGEMENT, DOMAINE ET DNS
+================================================================================
+
+  Le site est purement statique : n'importe quel hébergement mutualisé,
+  Netlify, Cloudflare Pages, GitHub Pages ou un simple espace FTP convient.
+  Ni PHP, ni base de données.
+
+  DÉPLOIEMENT : envoyer le CONTENU du dossier (pas le dossier lui-même) à la
+  racine web — www, public_html ou htdocs selon l'hébergeur. Conserver
+  l'arborescence css/, js/, fonts/, images/. Ne pas mettre en ligne le
+  dossier outils/ ni les deux fichiers .txt (sans conséquence, mais inutiles).
+
+  HTTPS OBLIGATOIRE. Un certificat Let's Encrypt suffit. Rediriger http vers
+  https.
+
+  UNE SEULE FORME DE DOMAINE. Choisir www.laconfrerire.be OU laconfrerire.be,
+  et rediriger l'autre en 301. Le domaine est écrit en dur à 18 endroits dans
+  6 fichiers :
+
+      les 4 pages .html   canonical, og:url, og:image (×4 chacun)
+      index.html          url et logo/image du bloc JSON-LD
+      les 3 pages int.    les 2 adresses de chaque fil d'Ariane JSON-LD
+      sitemap.xml         les 4 adresses
+      robots.txt          la ligne Sitemap:
+
+  Le robots.txt est le plus facile à oublier : un sitemap déclaré sur un
+  domaine redirigé est ignoré par la Search Console. Chercher
+  « laconfrerire.be » PARTOUT, pas seulement dans les pages.
+
+  COMPRESSION gzip ou brotli sur les .html, .css, .js, .xml et .svg. Inutile
+  sur les .jpg, .png et .woff2, déjà compressés.
+
+  CACHE. images/ et fonts/ peuvent être mis en cache très longtemps :
+      Cache-Control: public, max-age=31536000, immutable
+  En revanche .html, .css et .js doivent être revalidés à chaque visite
+  (no-cache), sans quoi une correction de texte mettra des jours à apparaître
+  chez les visiteurs.
+
+  PAGE 404. Elle n'existe pas. Si l'hébergeur en réclame une, dupliquer
+  index.html en 404.html et remplacer le contenu de <main> par un message et
+  un lien de retour.
+
+  APRÈS MISE EN LIGNE : soumettre sitemap.xml dans la Google Search Console,
+  et créer une fiche Google Business Profile pour la troupe. Pour une requête
+  locale comme « spectacle impro Liège », la fiche Google pèse souvent plus
+  lourd que le site lui-même.
+
+  AUCUNE MESURE D'AUDIENCE n'est installée. Si la troupe en veut une,
+  préférer une solution sans cookie (Plausible, Matomo auto-hébergé) : cela
+  évite d'avoir à ajouter une bannière de consentement.
+
+
+================================================================================
+10. RÉFÉRENCEMENT : CE QUI EST EN PLACE
+================================================================================
+
+  Cible : « spectacle impro Liège » et ses variantes.
+
+  - Titres d'onglet construits mot-clé d'abord, marque ensuite, tous sous
+    65 caractères et tous différents.
+  - Descriptions uniques par page, 117 à 147 caractères (au-delà de ~155
+    Google coupe).
+  - canonical, Open Graph complet et og:site_name sur les 4 pages.
+  - Données structurées : TheaterGroup sur l'accueil (avec zone desservie,
+    logo, offre de spectacle sur mesure), et un fil d'Ariane BreadcrumbList
+    sur les 3 autres pages.
+  - Textes alternatifs des photos principales rédigés avec le contexte
+    (troupe, Liège, impro) sans bourrage.
+  - Un seul <h1> par page, hiérarchie de titres sans saut de niveau.
+  - sitemap.xml avec lastmod, robots.txt ouvert.
+  - Vitesse et stabilité visuelle soignées (voir chapitre 11) : ce sont des
+    critères de classement à part entière.
+
+  Le contenu visible n'a pas été modifié pour le référencement.
+
+  CE QUI RESTE À GAGNER, par ordre d'efficacité :
+    1. Une fiche Google Business Profile (recherche locale).
+    2. Les balises Event une fois les vraies dates en ligne (chapitre 8).
+    3. Des liens entrants depuis les sites partenaires — la page « Demander »
+       les liste déjà, un échange est souvent facile à obtenir.
+    4. Mettre à jour lastmod dans sitemap.xml à chaque modification réelle.
+
+
+================================================================================
+11. CE QUI A DÉJÀ ÉTÉ VÉRIFIÉ (À NE PAS REFAIRE)
+================================================================================
+
+  - Un seul CSS et un seul JS partagés par les 4 pages, commentés en français
+    et découpés en sections numérotées.
+  - En-tête et pied de page strictement identiques sur les 4 pages, contrôlé
+    par script.
+  - HTML valide sur les 4 pages (html-validate, zéro erreur).
+  - Contraste WCAG AA vérifié sur chaque texte visible.
+  - Aucun défilement horizontal de 320 px à 1920 px.
+  - Aucune image en double, aucune image inutilisée, aucune règle CSS morte.
+  - Toutes les images de contenu ont alt, width et height. Seule exception
+    assumée : #modalPhoto, dont le contenu change à chaque ouverture.
+  - Photos hors du premier écran en loading="lazy" ; srcset sur le visuel
+    d'accueil.
+  - Polices auto-hébergées : aucune requête vers Google, meilleur temps
+    d'affichage, aucune donnée visiteur transmise à un tiers (RGPD).
+  - Navigation clavier complète : lien d'évitement, contour de focus
+    contrasté sur fond clair comme sur fond sombre, fiche membre ouvrable à
+    Entrée, zone de texte défilable atteignable par Tab, fermeture à Échap,
+    focus rendu à la carte d'origine.
+  - Fonctionne sans JavaScript : le menu du téléphone se déplie en liste
+    simple au lieu du bouton ☰, et le bouton « Copier l'adresse » reste
+    masqué au lieu d'être présent et inerte.
+  - Feuille d'impression : les 4 pages sortent lisibles en noir sur blanc,
+    adresses des liens en clair.
+  - prefers-reduced-motion respecté, défilement animé compris.
+
+
+================================================================================
+12. VÉRIFIER APRÈS MODIFICATION
+================================================================================
+
+  Le dossier outils/ contient les scripts qui ont servi à valider le site.
+  Ils ne font pas partie du site.
+
+      python3 outils/audit.py       doublons, code mort, poids, métadonnées
+      npx html-validate *.html      validité HTML
+      node outils/tests.js          6 largeurs x 4 pages : débordements
+      node outils/tests2.js         menu, fiche membre, clavier, srcset
+      node outils/tests3.js         focus, sans-JS, mouvement réduit
+      node outils/contrastes.js     contraste de chaque texte visible
+
+  DÉPENDANCES. audit.py demande Python 3 et Pillow (pip install pillow).
+  Les scripts .js demandent Playwright, qui n'est pas livré :
+
+      npm install playwright && npx playwright install chromium
+
+  Ils attendent le site servi sur http://127.0.0.1:8811 :
+
+      cd <dossier du site> && python3 -m http.server 8811
+
+  LIMITE CONNUE de contrastes.js : il ne mesure que la couleur du texte sur
+  son fond. Il ne voit ni les bordures, ni les contours de focus, ni les
+  icônes. Un contour de focus doré invisible sur un bandeau doré lui avait
+  échappé et a été trouvé à la main.
+
+  APERÇU LOCAL. Ouvrir index.html par double-clic fonctionne, mais les
+  polices ne se chargeront pas : Chrome les bloque sous le protocole file://.
+  Le texte apparaîtra dans une police système. C'est normal et cela disparaît
+  dès que le site est servi en HTTP. Pour un aperçu fidèle, passer par le
+  petit serveur ci-dessus.
+
+
+================================================================================
+13. CONVENTIONS ET PIÈGES DU CODE
+================================================================================
+
+  LANGUE. Tout est en français : commentaires, noms de fichiers d'images,
+  classes CSS métier (.roster, .mosaic, .insta-photo). C'est délibéré, la
+  troupe doit pouvoir s'y retrouver.
+
+  ORDRE DU CSS. Le fichier est ordonné : éléments communs d'abord, pages
+  ensuite. Une règle utilitaire doit être déclarée APRÈS celle qu'elle
+  surcharge, sinon un raccourci comme « padding » l'écrase. Le cas est
+  commenté autour de .section.pt-0 — il a réellement mordu une fois.
+
+  BOUTONS. Un bouton seul dans un paragraphe traîne une ligne de texte
+  invisible qui ajoute une trentaine de pixels sous lui. Le contournement est
+  display:flex sur le conteneur, PAS line-height:0 — qui aplatirait le bouton
+  de 54 à 30 px. Commenté dans le fichier.
+
+  DEUX FICHIERS PIÉGEUX : images/groupe-salut-scene.jpg et
+  images/groupe-scene-salut.jpg sont deux photos DIFFÉRENTES que seule
+  l'inversion de deux mots distingue. À renommer si vous y touchez.
+
+  La photo images/scene-individuelle.jpg ne fait que 695 px de large :
+  correcte à son emplacement actuel, juste si elle devait être agrandie.
+
+
+================================================================================
+14. POINTS LAISSÉS OUVERTS
+================================================================================
+
+  Décisions de forme, à trancher par la troupe :
+
+  - spectacles.html porte deux libellés pour une même page : « Réserver »
+    dans le menu et le pied de page, « Voir les prochaines dates » sur
+    l'accueil. Le mot « Spectacles » n'apparaît nulle part dans la
+    navigation : un visiteur qui cherche le programme sans vouloir réserver
+    doit deviner.
+
+
+
+================================================================================
+                              Bon courage !
+================================================================================
