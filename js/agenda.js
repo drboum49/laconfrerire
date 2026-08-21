@@ -5,7 +5,9 @@
    - jour et mois ;
    - spectacle, lieu et heure ;
    - statut ;
-   - reservationUrl : le lien DIRECT de l'événement Billetweb.
+   - billetwebUrl : le lien DIRECT de l'événement Billetweb ;
+   - billetwebEmbedUrl : le lien du module à intégrer, obtenu dans Billetweb
+     via « Intégrer sur un site ». Le paiement s'affichera alors ici.
 
    Pour masquer un spectacle, supprimez son bloc entier.
    S'il n'y a aucun spectacle à annoncer, laissez simplement [] ci-dessous.
@@ -22,8 +24,9 @@ window.CONFRERIRE_AGENDA = [
     lieu: 'TURLG, Liège',
     heure: '20h00',
     statut: 'Places disponibles',
-    reservationUrl: 'https://www.billetweb.fr/nom-de-votre-evenement',
-    bouton: 'Réserver'
+    billetwebUrl: 'https://www.billetweb.fr/nom-de-votre-evenement',
+    billetwebEmbedUrl: 'https://www.billetweb.fr/nom-de-votre-evenement',
+    bouton: 'Réserver ici'
   }
   */
 ];

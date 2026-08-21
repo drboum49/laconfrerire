@@ -536,6 +536,12 @@ img{max-width:100%;height:auto}
   text-transform:uppercase;padding:4px 12px;border-radius:999px;
   background:rgba(147,101,31,.10);color:var(--amber-pastille);font-weight:500;
 }
+.billetterie{grid-column:1 / -1;margin-top:4px}
+.billetweb-frame{
+  display:block;width:100%;min-height:680px;border:0;border-radius:var(--radius);
+  background:var(--cream-2);
+}
+.billetterie-multi{margin:28px 0 8px}
 @media(max-width:720px){
   .date{grid-template-columns:88px 1fr;gap:20px}
   .date .btn{grid-column:1 / -1;justify-self:start}

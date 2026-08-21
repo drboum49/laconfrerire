@@ -74,7 +74,7 @@
 </header>
 
 <!--
-  Les dates et les liens Billetweb sont gérés dans js/agenda.js.
+  Les dates et les modules Billetweb sont gérés dans js/agenda.js.
   C'est le seul fichier à modifier pour publier, retirer ou mettre à jour un
   spectacle. Le mode d'emploi complet se trouve au début de ce fichier.
 -->
@@ -82,9 +82,10 @@
   <div class="wrap">
     <h2 class="section-title">Les prochaines dates</h2>
 
-    <!-- Emplacement prévu pour le module de billetterie Billetweb.
-         Vide = rien ne s'affiche. -->
-    <div id="billetterie"></div>
+    <div id="billetterie" class="billetterie-multi">
+      <a title="Vente de billets en ligne" href="https://www.billetweb.fr/multi_event.php?multi=30646&amp;color=f2bf5e" class="shop_frame" target="_blank" rel="noopener" data-src="https://www.billetweb.fr/multi_event.php?multi=30646&amp;color=f2bf5e" data-max-width="100%" data-initial-height="600" data-scrolling="no" data-id="30646" data-resize="1">Vente de billets en ligne</a>
+    </div>
+    <script src="https://www.billetweb.fr/js/export.js"></script>
 
     <ul class="agenda-list" id="agenda-list" aria-live="polite"></ul>
 

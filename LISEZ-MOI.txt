@@ -260,14 +260,18 @@
   module intégré, si vous en choisissez un.
 
   OPTION A — LIENS DIRECTS (le plus simple)
-  Ajouter ou modifier l'adresse reservationUrl de chaque spectacle dans
+  Ajouter ou modifier l'adresse billetwebUrl de chaque spectacle dans
   js/agenda.js. Il doit s'agir de l'adresse de l'événement Billetweb, du type
-  https://www.billetweb.fr/nom-de-l-evenement. Le visiteur part sur Billetweb.
+  https://www.billetweb.fr/nom-de-l-evenement. Elle sert de solution de
+  secours si aucun module intégré n'est renseigné.
 
   OPTION B — MODULE INTÉGRÉ (le visiteur reste sur le site)
-  Billetweb fournit un <iframe> ou un <script> « widget » par événement. Le
-  poser dans le bloc <div id="billetterie">, prévu pour ça juste au-dessus de
-  la liste des dates, et retirer les boutons devenus redondants.
+  Dans Billetweb, ouvrir « Intégrer sur un site » pour l'événement et copier
+  l'adresse du module. La renseigner dans billetwebEmbedUrl du spectacle : la
+  réservation est alors affichée directement sous sa date, sans quitter le
+  site. Ne pas copier le code HTML complet : seule l'adresse du module est
+  attendue. Si le module n'est pas renseigné, le bouton de réservation reste
+  disponible et mène vers Billetweb.
   Deux points de vigilance :
     - l'iframe impose sa propre hauteur : prévoir width:100% et une hauteur
       suffisante, ou activer le redimensionnement automatique de Billetweb ;

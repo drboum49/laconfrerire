@@ -31,13 +31,14 @@
     });
   }
 
-  /* ----- 1 bis. Agenda et liens Billetweb ---------------------------------
+  /* ----- 1 bis. Agenda et billetterie Billetweb ----------------------------
      Les données sont volontairement séparées dans js/agenda.js : pour
      modifier une date ou son lien de réservation, il n'est pas nécessaire de
      toucher à cette partie du code ni à la page spectacles.html. */
   var agendaList = document.getElementById('agenda-list');
   if (agendaList) {
     var emptyAgenda = document.querySelector('.empty-agenda');
+    var billetterieMulti = document.getElementById('billetterie');
     var evenements = Array.isArray(window.CONFRERIRE_AGENDA) ? window.CONFRERIRE_AGENDA : [];
 
     function addText(parent, tag, className, value) {
@@ -50,7 +51,7 @@
 
     evenements.forEach(function (evenement) {
       if (!evenement || !evenement.jour || !evenement.mois || !evenement.spectacle ||
-          !evenement.lieu || !evenement.heure || !evenement.statut || !evenement.reservationUrl) {
+          !evenement.lieu || !evenement.heure || !evenement.statut || !evenement.billetwebUrl) {
         if (window.console) console.warn('Agenda : un spectacle incomplet a été ignoré.');
         return;
       }
@@ -68,19 +69,33 @@
       addText(details, 'span', 'statut', evenement.statut);
       item.appendChild(details);
 
-      var reservation = document.createElement('a');
-      reservation.className = 'btn btn-primary';
-      reservation.href = evenement.reservationUrl;
-      reservation.textContent = evenement.bouton || 'Réserver';
-      if (/^https?:\/\//i.test(evenement.reservationUrl)) {
-        reservation.target = '_blank';
-        reservation.rel = 'noopener';
+      if (evenement.billetwebEmbedUrl) {
+        var billetterie = document.createElement('div');
+        billetterie.className = 'billetterie';
+        var titreBilletterie = evenement.spectacle + ' — réservation Billetweb';
+        var frame = document.createElement('iframe');
+        frame.className = 'billetweb-frame';
+        frame.src = evenement.billetwebEmbedUrl;
+        frame.title = titreBilletterie;
+        frame.loading = 'lazy';
+        frame.setAttribute('allowpaymentrequest', '');
+        billetterie.appendChild(frame);
+        item.appendChild(billetterie);
+      } else {
+        var reservation = document.createElement('a');
+        reservation.className = 'btn btn-primary';
+        reservation.href = evenement.billetwebUrl;
+        reservation.textContent = evenement.bouton || 'Réserver';
+        if (/^https?:\/\//i.test(evenement.billetwebUrl)) {
+          reservation.target = '_blank';
+          reservation.rel = 'noopener';
+        }
+        item.appendChild(reservation);
       }
-      item.appendChild(reservation);
       agendaList.appendChild(item);
     });
 
-    if (agendaList.children.length) {
+    if (agendaList.children.length || (billetterieMulti && billetterieMulti.children.length)) {
       if (emptyAgenda) emptyAgenda.hidden = true;
     } else if (emptyAgenda) {
       emptyAgenda.hidden = false;
